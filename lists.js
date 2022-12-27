@@ -39,7 +39,19 @@ function linkedList() {
     }
     console.log(`Tail: ${TAIL.value}`);
   }
-  return { HEAD, addNode, prepend, size, head, tail };
+  function at(index) {
+    let i = 0;
+    let TAIL = list.HEAD;
+    while (TAIL.next !== null) {
+      if (i == index) {
+        console.log(TAIL);
+        return;
+      }
+      i += 1;
+      TAIL = TAIL.next;
+    }
+  }
+  return { HEAD, addNode, prepend, size, head, tail, at };
 }
 
 let list = linkedList();
@@ -52,3 +64,4 @@ list.addNode("45");
 list.size();
 list.head();
 list.tail();
+list.at(4);
