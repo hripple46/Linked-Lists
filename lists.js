@@ -27,13 +27,28 @@ function linkedList() {
       i += 1;
       TAIL = TAIL.next;
     }
-    console.log(i);
+    console.log(`Length: ${i}`);
   }
-  return { HEAD, addNode, prepend, size };
+  function head() {
+    console.log(`Head: ${list.HEAD.next.value}`);
+  }
+  function tail() {
+    let TAIL = list.HEAD;
+    while (TAIL.next !== null) {
+      TAIL = TAIL.next;
+    }
+    console.log(`Tail: ${TAIL.value}`);
+  }
+  return { HEAD, addNode, prepend, size, head, tail };
 }
+
 let list = linkedList();
 list.addNode("1");
 list.addNode("2");
 list.prepend("-7");
 list.addNode("3");
+list.addNode("45");
+
 list.size();
+list.head();
+list.tail();
